@@ -145,12 +145,14 @@ body{
 .bar.css{background:linear-gradient(90deg,#bfe3ff,#2b82ff)}
 .bar.js{background:linear-gradient(90deg,#fff2c6,#ffb74d)}
 .bar.react{background:linear-gradient(90deg,#dffaff,#61dafb)}
-.bar.phd{background:linear-gradient(90deg,#e7ddff,#6a52ff)}
+.bar.php{background:linear-gradient(90deg,#e7ddff,#6a52ff)}
+.bar.java{background:linear-gradient(90deg, #ffcccc, #ff0000)}
 .bar.animate.html{width:98%}
 .bar.animate.css{width:98%}
 .bar.animate.js{width:80%}
 .bar.animate.react{width:60%}
-.bar.animate.phd{width:50%}
+.bar.animate.php{width:50%}
+.bar.animate.java{width:70%}
 .progress::after{content:attr(data-percent);position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--text);font-weight:700;font-size:.9rem;opacity:.9}
 .about-text{max-width:880px;margin:20px auto 0;color:var(--muted);line-height:1.7;font-size:1rem}
 
@@ -245,3 +247,4 @@ footer{padding:28px 6px;text-align:center;color:var(--muted);font-size:.94rem}
 .service-icon{font-size:3rem;margin-bottom:1rem}
 .service-card h3{font-size:1.3rem;margin-bottom:0.8rem}
 .service-card p{font-size:0.95rem;line-height:1.6;color:var(--text-services-card)}
+
