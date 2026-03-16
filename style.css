@@ -225,6 +225,9 @@ footer{padding:28px 6px;text-align:center;color:var(--muted);font-size:.94rem}
 .icon.js { background:#f7df1e; color:#000; }
 .icon.react { background:#61dafb; color:#000; }
 .icon.git { background:#f05032; color:#fff; }
+.icon.java { background:#f89820; color:#fff; }     
+.icon.python { background:#3776ab; color:#fff; }   
+.icon.c { background:#00599c; color:#fff; }
 
 /* Services Section */
 .services {
