@@ -1,4 +1,4 @@
-:root { 
+:root {
   /* Light theme */
   --bg: #f6f7f9;
   --panel: #ffffff;
@@ -14,10 +14,6 @@
   --text-services-card: #555;
   --card-bg: #fff;
   --accent-color: #007aff;
-
-  /* Skill colors */
-  --skill-green: #22c55e;
-  --skill-gray: #9ca3af;
 }
 
 /* Dark theme */
@@ -36,10 +32,6 @@
   --text-services-card: #ccc;
   --card-bg: #1a1a1a;
   --accent-color: #00adb5;
-
-  /* Skill colors */
-  --skill-green: #22c55e;
-  --skill-gray: #9ca3af;
 }
 
 /* Reset */
@@ -49,112 +41,239 @@
   box-sizing: border-box;
 }
 
+/* Base */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
   background: var(--bg);
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Skills */
+/* Header */
 
-.skills {
-  width: 86%;
-  max-width: 920px;
-  margin: 0 auto 18px;
-}
-
-.skill {
+.site-header {
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  z-index: 1100;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 12px 0;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.skill p {
-  margin-bottom: 6px;
+.header-inner {
+  pointer-events: auto;
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.7),
+    rgba(255,255,255,0.6)
+  );
+
+  backdrop-filter: blur(8px) saturate(110%);
+  border-radius: 12px;
+
+  padding: 12px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 8px 30px var(--card-shadow);
+  border: 1px solid rgba(10,20,30,0.04);
+}
+
+:root[data-theme="dark"] .header-inner {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.02)
+  );
+
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Logo */
+
+.logo {
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text);
 }
 
-.progress {
-  width: 100%;
-  height: 14px;
-  background: #eef3f8;
-  border-radius: 999px;
-  overflow: hidden;
+.logo span {
+  color: var(--accent);
+}
+
+/* Navigation */
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all .18s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(74,163,255,0.08);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Theme toggle */
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle svg {
+  display: block;
+}
+
+.theme-toggle-wrap {
+  margin-left: 12px;
+}
+
+/* Hero Section */
+
+.hero {
+  min-height: 84vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 120px 20px 60px;
+
   position: relative;
+  overflow: hidden;
 }
 
-:root[data-theme="dark"] .progress {
-  background: #112026;
-}
-
-.bar {
-  height: 100%;
-  width: 0;
-  border-radius: 999px;
-  transition: width 1.4s ease;
-}
-
-/* GREEN + GRAY SKILL BARS */
-
-.bar.html {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-.bar.css {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-.bar.js {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-.bar.react {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-.bar.php {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-.bar.java {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-.bar.python {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-.bar.c {
-  background: linear-gradient(90deg, var(--skill-gray), var(--skill-green));
-}
-
-/* Animation Percentages */
-
-.bar.animate.html { width: 98%; }
-.bar.animate.css { width: 98%; }
-.bar.animate.js { width: 80%; }
-.bar.animate.react { width: 60%; }
-.bar.animate.php { width: 50%; }
-.bar.animate.java { width: 70%; }
-.bar.animate.python { width: 70%; }
-.bar.animate.c { width: 65%; }
-
-/* Percent Text */
-
-.progress::after {
-  content: attr(data-percent);
+.hero-overlay {
   position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--skill-green);
+  inset: 0;
+
+  background:
+    radial-gradient(
+      600px 300px at -10% 20%,
+      rgba(74,163,255,0.12),
+      transparent 12%
+    ),
+    radial-gradient(
+      420px 240px at 110% 80%,
+      rgba(90,200,255,0.07),
+      transparent 10%
+    );
+
+  filter: blur(24px);
+  z-index: 0;
+
+  pointer-events: none;
+
+  animation: gentleShift 12s ease-in-out infinite;
+}
+
+@keyframes gentleShift {
+
+  0% {
+    transform: translateX(-6%);
+  }
+
+  50% {
+    transform: translateX(6%);
+  }
+
+  100% {
+    transform: translateX(-6%);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: .4rem;
+}
+
+.hero span {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 1.02rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: .8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  padding: .7rem 1.2rem;
+  border-radius: 999px;
   font-weight: 700;
-  font-size: 0.9rem;
+  text-decoration: none;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(
+    180deg,
+    var(--accent),
+    #2b8ff6
+  );
+
+  color: #fff;
+
+  box-shadow: 0 8px 20px rgba(74,163,255,0.12);
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid rgba(11,18,32,0.06);
+  color: var(--text);
 }
