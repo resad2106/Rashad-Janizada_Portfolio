@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rashadjanizada.dev/sitemap.xml
